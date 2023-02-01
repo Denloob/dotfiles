@@ -1,0 +1,14 @@
+{
+    "Magshimim Default Base Code": {
+        "prefix": "incc",
+        "body": [
+            "#include <stdio.h>\n",
+            "int main()",
+            "{",
+            "\t$0\n",
+            "\treturn 0;",
+            "}"
+        ],
+        "description": "The base code of include and main for Magshimim HomeWork"
+    }
+}

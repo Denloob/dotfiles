@@ -1,0 +1,1 @@
+-- vim.keymap.set("n", "<leader>r", "<cmd>ToggleBool<CR>")

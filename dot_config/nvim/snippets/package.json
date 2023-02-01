@@ -1,0 +1,13 @@
+{
+    "name": "nvim-snippets",
+    "author": "Den_loob",
+
+    "contributes": {
+        "snippets": [
+            {
+                "language": "c",
+                "path": "./c.json"
+            }
+        ]
+    }
+}
