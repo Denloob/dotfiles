@@ -30,7 +30,6 @@ return require('packer').startup(function(use)
 
     use 'jiangmiao/auto-pairs'
     use 'kylechui/nvim-surround'
-    -- use 'sagarrakshe/toggle-bool'
 
     use {
         "folke/todo-comments.nvim",
@@ -40,6 +39,7 @@ return require('packer').startup(function(use)
     }
 
     use 'dstein64/vim-startuptime'
+    use 'lewis6991/impatient.nvim'
 
     use 'gbprod/yanky.nvim'
     use { 'mg979/vim-visual-multi', tag = 'master' }
@@ -55,7 +55,7 @@ return require('packer').startup(function(use)
     use 'uga-rosa/cmp-dictionary'
     use 'rafamadriz/friendly-snippets'
 
-    use {'L3MON4D3/LuaSnip', tag = 'v1.*'}
+    use { 'L3MON4D3/LuaSnip', tag = 'v1.*' }
     use 'saadparwaiz1/cmp_luasnip'
 
     use 'mhartington/formatter.nvim'
