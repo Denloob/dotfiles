@@ -32,4 +32,6 @@ if vim.fn.has("win32") == 1 then
         let &shellpipe    = '| Out-File -Encoding UTF8 %s'
         let &shellredir   = '| Out-File -Encoding UTF8 %s'
     ]])
+elseif #vim.fs.find("fish", {path="/usr/bin"}) > 0 then
+    vim.o.shell = "/usr/bin/fish"
 end
