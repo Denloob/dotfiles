@@ -80,3 +80,8 @@ require 'lspconfig'.lua_ls.setup {
         },
     },
 }
+
+require 'lspconfig'.bashls.setup {
+    on_attach = on_attach_general,
+    capabilities = capabilities,
+}
