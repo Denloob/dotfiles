@@ -69,7 +69,7 @@ require 'lspconfig'.clangd.setup {
 }
 
 require 'lspconfig'.pyright.setup {
-    on_attach = on_attach_clangd,
+    on_attach = on_attach_general,
     capabilities = capabilities,
 }
 
