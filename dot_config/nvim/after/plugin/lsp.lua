@@ -57,15 +57,6 @@ end
 require 'lspconfig'.clangd.setup {
     on_attach = on_attach_clangd,
     capabilities = capabilities,
-    -- HACK: for config.h in dwm
-    -- TODO: REMOVE or find a better way to do so
-    -- maybe something like attach only on config.help
-    -- but even better would be a normat solution
-    cmd = {
-        "clangd",
-        "-Wno-undefined-internal",
-        "-Wno-unused-variable",
-    }
 }
 
 require 'lspconfig'.pyright.setup {
