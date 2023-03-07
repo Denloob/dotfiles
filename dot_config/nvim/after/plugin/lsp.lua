@@ -39,7 +39,7 @@ local on_attach_clangd = function(client, bufnr)
     local format_fix = function()
         vim.cmd("w")
         vim.cmd("Format")
-        vim.defer_fn(function ()
+        vim.defer_fn(function()
             vim.cmd("%s/\r//")
             vim.cmd([[execute "normal! \<c-o>"]])
         end, vim.g.ff)
@@ -60,7 +60,11 @@ require 'lspconfig'.clangd.setup {
 }
 
 require 'lspconfig'.pyright.setup {
-    on_attach = on_attach_general,
+    on_attach = function(client, bufnr)
+        local bufopts = { noremap = true, silent = true, buffer = bufnr }
+        on_attach(client, bufnr)
+        vim.keymap.set('n', '<C-f>', '<cmd>Format<CR>', bufopts)
+    end,
     capabilities = capabilities,
 }
 
