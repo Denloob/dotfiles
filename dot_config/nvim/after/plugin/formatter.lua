@@ -33,6 +33,14 @@ require("formatter").setup {
                     },
                 }
             end
+        },
+        json = {
+            function()
+                return {
+                    exe = "fixjson",
+                    stdin = true,
+                }
+            end,
         }
     }
 }
