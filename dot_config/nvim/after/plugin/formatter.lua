@@ -9,8 +9,6 @@ require("formatter").setup {
     log_level = vim.log.levels.WARN,
     -- All formatter configurations are opt-in
     filetype = {
-        -- Formatter configurations for filetype "lua" go here
-        -- and will be executed in order
         c = {
             function()
                 return {
@@ -21,11 +19,10 @@ require("formatter").setup {
                     },
                     stdin = true,
                 }
-
             end
         },
         python = {
-            function ()
+            function()
                 return {
                     exe = "black",
                     args = {
@@ -41,6 +38,6 @@ require("formatter").setup {
                     stdin = true,
                 }
             end,
-        }
+        },
     }
 }
