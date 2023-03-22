@@ -10,6 +10,6 @@ if status is-interactive
         startx
     end
 
-    # Abbreviate `v` to `nvim`
+    # Abbreviations
     abbr -a --position command v nvim
 end
