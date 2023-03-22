@@ -60,6 +60,7 @@ return require('packer').startup(function(use)
 
     use 'mbbill/undotree'
 
+    use 'kdheepak/lazygit.nvim'
     -- TODO: add everything from nvim-cmp
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
