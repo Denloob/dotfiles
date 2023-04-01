@@ -4,3 +4,55 @@ bind K tabprev
 
 # Unbind <F1> that's used by Tree-Style-Tabs
 unbind <F1>
+
+" Thanks to *this comment for the following snipets.
+" The snippets may be modified.
+"* - https://github.com/tridactyl/tridactyl/issues/377#issuecomment-895565496-permalink
+
+# Tree-Style-Tabs commands
+
+## expand/collapse commands (require a parameter except ttcollapse_current_or_parent)
+command ttcollapse js -d€ browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'collapse-tree', tab: JS_ARGS[1]})€
+command ttcollapse_recursively js -d€ browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'collapse-tree', tab: JS_ARGS[1], recursively: true})€
+command ttexpand js -d€ browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'expand-tree', tab: JS_ARGS[1]})€
+command ttexpand_recursively js -d€ browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'expand-tree', tab: JS_ARGS[1], recursively: true})€
+
+
+command ttcollapse_current_or_parent js browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'get-tree-structure', tab: 'current'}).then(struct => browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'collapse-tree', tab: struct[0].collapsed ? 'parent' : 'current'}))
+
+## focus
+" > `:ttfocus` is useful to move to parents (parameter `parent` or `root`) and between siblings while jumping over subtrees (`nextSibling`/`prevSibling`)
+command ttfocus js -d€ browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'focus', tab: JS_ARGS[1]})€
+
+## indent/outdent
+command ttindent js -d€ browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'indent', tab: JS_ARGS[1]})€
+command ttindent_recursively js -d€ browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'indent', tab: JS_ARGS[1], followChildren: true})€
+command ttoutdent js -d€ browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'outdent', tab: JS_ARGS[1]})€
+command ttoutdent_recursively js -d€ browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'outdent', tab: JS_ARGS[1], followChildren: true})€
+
+## Bindings
+
+### Collapsing current/parent or [recursively] the current root
+bind zc ttcollapse_current_or_parent
+bind zC ttcollapse_recursively root
+bind zx ttcollapse root
+
+### Expand current tab or current and all children
+bind zo ttexpand current
+bind zO ttexpand_recursively current
+
+### Collapse/expand all
+bind zM ttcollapse *
+bind zR ttexpand *
+
+### Move up the tree
+bind zp ttfocus parent
+bind zP ttfocus root
+
+### Focus next/previous, skipping over subtrees. Mabe also `nextSiblingCyclic`/`prevSiblingCyclic`
+bind zj ttfocus nextSibling
+bind zk ttfocus prevSibling
+
+### recursively indent/outdent ( TODO: maybe `z<` `z>` ?)
+bind << ttoutdent_recursively current
+bind >> ttindent_recursively current
