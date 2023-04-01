@@ -73,6 +73,7 @@ return require('packer').startup(function(use)
 
     use { 'L3MON4D3/LuaSnip', tag = 'v1.*' }
     use 'saadparwaiz1/cmp_luasnip'
+    use 'jose-elias-alvarez/null-ls.nvim'
 
     use 'mhartington/formatter.nvim'
     use 'williamboman/mason.nvim'
