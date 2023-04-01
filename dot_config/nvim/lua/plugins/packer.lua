@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
 
     use 'NyCodeGHG/presence.nvim'
 
+    use 'aserowy/tmux.nvim'
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
