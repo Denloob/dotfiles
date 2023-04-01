@@ -89,3 +89,9 @@ require 'lspconfig'.bashls.setup {
     on_attach = on_attach_general,
     capabilities = capabilities,
 }
+
+require 'lspconfig'.elixirls.setup {
+    on_attach = on_attach_general,
+    capabilities = capabilities,
+    cmd = { "elixir-ls" }
+}
