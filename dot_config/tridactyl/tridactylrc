@@ -1,0 +1,6 @@
+" For Tree-Style-Tabs natural tab switching
+bind J tabnext
+bind K tabprev
+
+" Unbind <F1> that's used by Tree-Style-Tabs
+unbind <F1>
