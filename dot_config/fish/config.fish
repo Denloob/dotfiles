@@ -13,4 +13,5 @@ if status is-interactive
     # Abbreviations
     abbr -a --position command v nvim
     abbr -a --position command chez chezmoi cd
+    abbr -a --position command cheza chezmoi apply -v
 end
