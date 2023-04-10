@@ -14,7 +14,17 @@ require("formatter").setup {
                 return {
                     exe = "clang-format",
                     args = {
-                        '-style="{BreakBeforeBraces: Allman, IndentWidth: 4}"',
+                        '-style="{' ..
+                            'ReflowComments: false,' ..
+                            'IndentWidth: 4,' ..
+                            'ColumnLimit: 80,' ..
+                            'IndentCaseLabels: true,' ..
+                            'BreakBeforeBraces: Allman,' ..
+                            'AllowShortFunctionsOnASingleLine: None,' ..
+                            'AllowShortEnumsOnASingleLine: true,' ..
+                            'AllowShortIfStatementsOnASingleLine: false,' ..
+                            'AllowShortBlocksOnASingleLine: Empty,' ..
+                        '}"',
                     },
                     stdin = true,
                 }
