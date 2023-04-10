@@ -15,7 +15,6 @@ require("formatter").setup {
                     exe = "clang-format",
                     args = {
                         '-style="{BreakBeforeBraces: Allman, IndentWidth: 4}"',
-                        util.escape_path(util.get_current_buffer_file_path()),
                     },
                     stdin = true,
                 }
