@@ -31,40 +31,26 @@ end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-vim.g.ff = 1000 -- ms after which to run format fix
-local on_attach_clangd = function(client, bufnr)
-    on_attach(client, bufnr)
-    -- HACK: this will format the code and schedule a %s/^M// to run after vim.g.ff miliseconds
-    -- TODO: keep the search results / fix without hack
-    local format_fix = function()
-        vim.cmd("w")
-        vim.cmd("Format")
-        vim.defer_fn(function()
-            vim.cmd("%s/\r//")
-            vim.cmd([[execute "normal! \<c-o>"]])
-        end, vim.g.ff)
-    end
-    vim.keymap.set('n', '<C-f>', format_fix)
-end
-
 local on_attach_general = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     on_attach(client, bufnr)
     vim.keymap.set('n', '<C-f>', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
+local on_attach_external_formatting = function(client, bufnr)
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    on_attach(client, bufnr)
+    vim.keymap.set('n', '<C-f>', "<cmd>Format<CR>", bufopts)
+end
+
 
 require 'lspconfig'.clangd.setup {
-    on_attach = on_attach_clangd,
+    on_attach = on_attach_external_formatting,
     capabilities = capabilities,
 }
 
 require 'lspconfig'.pyright.setup {
-    on_attach = function(client, bufnr)
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        on_attach(client, bufnr)
-        vim.keymap.set('n', '<C-f>', '<cmd>Format<CR>', bufopts)
-    end,
+    on_attach = on_attach_external_formatting,
     capabilities = capabilities,
 }
 
