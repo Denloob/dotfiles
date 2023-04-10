@@ -1,9 +1,9 @@
 # Unbind <F1> that's used by Tree-Style-Tabs
 unbind <F1>
 
-" Thanks to *this comment for the following snipets.
-" The snippets may be modified.
-"* - https://github.com/tridactyl/tridactyl/issues/377#issuecomment-895565496-permalink
+# Thanks to *this comment for the following snipets.
+# The snippets may be modified.
+#* - https://github.com/tridactyl/tridactyl/issues/377#issuecomment-895565496-permalink
 
 # Tree-Style-Tabs commands
 
