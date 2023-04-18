@@ -62,7 +62,9 @@ return require('packer').startup(function(use)
 
     use 'mbbill/undotree'
 
+    use 'lewis6991/gitsigns.nvim'
     use 'kdheepak/lazygit.nvim'
+    use 'tpope/vim-fugitive'
     -- TODO: add everything from nvim-cmp
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
