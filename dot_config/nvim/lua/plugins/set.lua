@@ -41,3 +41,5 @@ if vim.fn.has("win32") == 1 then
 elseif #vim.fs.find("fish", {path="/usr/bin"}) > 0 then
     vim.o.shell = "/usr/bin/fish"
 end
+
+vim.g.loaded_python3_provider = 0
