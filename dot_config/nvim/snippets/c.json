@@ -7,7 +7,7 @@
             "int main()",
             "{",
             "\t$0\n",
-            "\tgetchar();"
+            "\tgetchar();",
             "\treturn 0;",
             "}"
         ],
