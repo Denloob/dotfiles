@@ -2,10 +2,12 @@
     "Magshimim Default Base Code": {
         "prefix": "incc",
         "body": [
-            "#include <stdio.h>\n",
+            "#include <stdio.h>",
+            "#include <stdlib.h>\n",
             "int main()",
             "{",
             "\t$0\n",
+            "\tgetchar();"
             "\treturn 0;",
             "}"
         ],
