@@ -12,5 +12,12 @@
             "}"
         ],
         "description": "The base code of include and main for Magshimim HomeWork"
+    },
+    "Unsigned Integer": {
+        "prefix": "uintt",
+        "body": [
+            "unsigned int $0"
+        ],
+        "description": "unsigned int snippet"
     }
 }
