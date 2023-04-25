@@ -12,6 +12,8 @@ if status is-interactive
 
     # Abbreviations
     abbr -a --position command v nvim
+    abbr -a --position command py python3
+    abbr -a --position command pip python3 -m pip
     abbr -a --position command chez chezmoi cd
     abbr -a --position command cheza chezmoi apply -v
 end
