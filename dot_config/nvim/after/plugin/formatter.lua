@@ -1,6 +1,20 @@
 -- Utilities for creating configurations
 local util = require "formatter.util"
 
+local clang_format_style_config =
+    '-style="{' ..
+        'ReflowComments: false,' ..
+        'IndentWidth: 4,' ..
+        'ColumnLimit: 80,' ..
+        'IndentCaseLabels: true,' ..
+        'BreakBeforeBraces: Allman,' ..
+        'AllowShortFunctionsOnASingleLine: None,' ..
+        'AllowShortEnumsOnASingleLine: true,' ..
+        'AllowShortIfStatementsOnASingleLine: false,' ..
+        'AllowShortBlocksOnASingleLine: Empty,' ..
+    '}"'
+
+
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup {
     -- Enable or disable logging
@@ -14,17 +28,7 @@ require("formatter").setup {
                 return {
                     exe = "clang-format",
                     args = {
-                        '-style="{' ..
-                            'ReflowComments: false,' ..
-                            'IndentWidth: 4,' ..
-                            'ColumnLimit: 80,' ..
-                            'IndentCaseLabels: true,' ..
-                            'BreakBeforeBraces: Allman,' ..
-                            'AllowShortFunctionsOnASingleLine: None,' ..
-                            'AllowShortEnumsOnASingleLine: true,' ..
-                            'AllowShortIfStatementsOnASingleLine: false,' ..
-                            'AllowShortBlocksOnASingleLine: Empty,' ..
-                        '}"',
+                        clang_format_style_config,
                     },
                     stdin = true,
                 }
