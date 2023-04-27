@@ -36,7 +36,7 @@ require("formatter").setup {
                     exe = "black",
                     args = {
                         "--line-length 80",
-                        "-", -- allowes reading from stdin
+                        "-", -- allows reading from stdin
                     },
                     stdin = true,
                 }
