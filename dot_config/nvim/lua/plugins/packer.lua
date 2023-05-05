@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
     use 'folke/tokyonight.nvim'
     use 'sainnhe/sonokai'
 
+    use 'stevearc/dressing.nvim'
     use 'nvim-lualine/lualine.nvim'
 
     use {
