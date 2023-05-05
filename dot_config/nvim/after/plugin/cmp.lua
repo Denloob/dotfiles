@@ -58,24 +58,6 @@ cmp.setup.filetype('gitcommit', {
     })
 })
 
-require("cmp_dictionary").setup({
-    dic = {
-        ["*"] = vim.fn.has("win32") == 1 and { os.getenv("HomePath") .. "\\words.txt" } or { "/usr/share/dict/words" },
-        -- spelllang = {
-        --     en = vim.fn.has("win32") == 1 and os.getenv("HomePath") .. "\\en.dict" or os.getenv("HOME") .. "/en.dict",
-        -- },
-    },
-    -- The following are default values.
-    exact = 6,
-    first_case_insensitive = true,
-    document = false,
-    document_command = "wn %s -over",
-    async = true,
-    max_items = 10,
-    capacity = 5,
-    debug = false,
-})
-
 -- TODO: make this thing work
 --
 -- -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
