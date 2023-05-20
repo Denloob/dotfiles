@@ -1,3 +1,4 @@
+local lspconfig = require 'lspconfig'
 local opts = { noremap = true, silent = true }
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '<leader>dk', vim.diagnostic.goto_prev, opts)
@@ -44,17 +45,17 @@ local on_attach_external_formatting = function(client, bufnr)
 end
 
 
-require 'lspconfig'.clangd.setup {
+lspconfig.clangd.setup {
     on_attach = on_attach_external_formatting,
     capabilities = capabilities,
 }
 
-require 'lspconfig'.pyright.setup {
+lspconfig.pyright.setup {
     on_attach = on_attach_external_formatting,
     capabilities = capabilities,
 }
 
-require 'lspconfig'.lua_ls.setup {
+lspconfig.lua_ls.setup {
     on_attach = on_attach_general,
     capabilities = capabilities,
     settings = {
@@ -71,12 +72,12 @@ require 'lspconfig'.lua_ls.setup {
     },
 }
 
-require 'lspconfig'.bashls.setup {
+lspconfig.bashls.setup {
     on_attach = on_attach_general,
     capabilities = capabilities,
 }
 
-require 'lspconfig'.elixirls.setup {
+lspconfig.elixirls.setup {
     on_attach = on_attach_general,
     capabilities = capabilities,
     cmd = { "elixir-ls" }
