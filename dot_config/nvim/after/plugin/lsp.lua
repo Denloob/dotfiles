@@ -51,6 +51,11 @@ lspconfig.clangd.setup {
     capabilities = capabilities,
 }
 
+lspconfig.jsonls.setup {
+    on_attach = on_attach_external_formatting,
+    capabilities = capabilities,
+}
+
 lspconfig.pyright.setup {
     on_attach = on_attach_external_formatting,
     capabilities = capabilities,
