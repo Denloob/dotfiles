@@ -68,6 +68,7 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'kdheepak/lazygit.nvim'
     use 'tpope/vim-fugitive'
+    use 'Exafunction/codeium.vim'
     -- TODO: add everything from nvim-cmp
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
