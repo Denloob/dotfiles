@@ -19,5 +19,31 @@
             "unsigned int $0"
         ],
         "description": "unsigned int snippet"
+    },
+
+    "getstr Declaration": {
+        "prefix": "getstrd",
+        "body": [
+            "/*",
+            " * fgets a string removing the newline.",
+            " *",
+            " * @param string the buffer for the string.",
+            " * @param max_count the max count of characters to get.",
+            " */",
+            "void getstr(char *string, int max_count);"
+        ],
+        "description": "Declaration for the getstr function"
+    },
+
+    "getstr Implementation": {
+        "prefix": "getstri",
+        "body": [
+            "void getstr(char *string, int max_count)",
+            "{",
+            "\tfgets(string, max_count, stdin);",
+            "\tstring[strcspn(string, \"\\n\")] = 0;",
+            "}"
+        ],
+        "description": "Implementation for the getstr function"
     }
 }
