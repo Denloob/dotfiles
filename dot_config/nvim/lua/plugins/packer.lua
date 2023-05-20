@@ -57,6 +57,7 @@ return require('packer').startup(function(use)
     use 'dstein64/vim-startuptime'
     use 'lewis6991/impatient.nvim'
     use 'lambdalisue/suda.vim'
+    use 'rootkiter/vim-hexedit'
 
     use 'gbprod/yanky.nvim'
     use { 'mg979/vim-visual-multi', tag = 'master' }
