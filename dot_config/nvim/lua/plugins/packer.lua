@@ -82,6 +82,7 @@ return require('packer').startup(function(use)
     use 'saadparwaiz1/cmp_luasnip'
     use 'jose-elias-alvarez/null-ls.nvim'
 
+    use 'danymat/neogen'
     use 'mhartington/formatter.nvim'
     use 'williamboman/mason.nvim'
     use 'neovim/nvim-lspconfig'
