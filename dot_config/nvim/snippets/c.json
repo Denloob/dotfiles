@@ -27,8 +27,8 @@
             "/*",
             " * fgets a string removing the newline.",
             " *",
-            " * @param string the buffer for the string.",
-            " * @param max_count the max count of characters to get.",
+            " * @param string The buffer for the string.",
+            " * @param max_count The max count of characters to get.",
             " */",
             "void getstr(char *string, int max_count);"
         ],
