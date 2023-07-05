@@ -83,6 +83,9 @@ return require('packer').startup(function(use)
     use 'jose-elias-alvarez/null-ls.nvim'
 
     use 'danymat/neogen'
+
+    use 'https://gitlab.com/schrieveslaach/sonarlint.nvim'
+
     use 'mhartington/formatter.nvim'
     use 'williamboman/mason.nvim'
     use 'neovim/nvim-lspconfig'
