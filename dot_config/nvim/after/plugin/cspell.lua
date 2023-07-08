@@ -1,7 +1,9 @@
 local M = {}
 
 --- Returns the keys of the table
----@param t table
+---@generic T
+---@param t table<T, any>
+---@return T[]
 local _get_table_keys = function(t)
     local keys = {}
     for key, _ in pairs(t) do
@@ -11,6 +13,7 @@ local _get_table_keys = function(t)
 end
 
 --- Returns the config path
+---@return string
 M.get_config_path = function()
     local home_path = vim.fn.expand("$HOME")
     local config_path = string.format("%s/.cspell/%s.json", home_path, vim.bo.filetype)
