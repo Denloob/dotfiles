@@ -90,8 +90,3 @@ lspconfig.elixirls.setup {
     capabilities = capabilities,
     cmd = { "elixir-ls" }
 }
-
-lspconfig.rust_analyzer.setup {
-    on_attach = on_attach_general,
-    capabilities = capabilities,
-}
