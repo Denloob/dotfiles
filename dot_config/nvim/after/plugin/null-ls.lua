@@ -1,9 +1,10 @@
 local null_ls = require("null-ls")
+local cspell = require("cspell")
 
 
 local cspell_code_action = null_ls.builtins.code_actions.cspell.with({
     config = {
-        find_json = require 'cspell'.get_config_path
+        find_json = cspell.get_config_path
     },
     disabled_filetypes = { "NvimTree" },
 })
@@ -20,7 +21,7 @@ null_ls.setup({
                     params.ft,
                     "--show-suggestions",
                     "--config",
-                    require 'cspell'.get_config_path(),
+                    cspell.get_config_path(),
                     "stdin",
                 }
             end
