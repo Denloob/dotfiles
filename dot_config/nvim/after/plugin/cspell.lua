@@ -28,16 +28,16 @@ M.create_config = function()
 end
 
 --- Checks if the config exists
----@return number 1 if exists, 0 if not
+---@return boolean
 M.config_exists = function()
     local config_path = M.get_config_path()
 
-    return vim.fn.filereadable(config_path)
+    return vim.fn.filereadable(config_path) == 1
 end
 
 local subcommands = {
     ["Exists"] = function()
-        if M.config_exists() == 1 then
+        if M.config_exists() then
             print("Yes")
         else
             print("No")
