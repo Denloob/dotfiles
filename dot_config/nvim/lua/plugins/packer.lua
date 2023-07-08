@@ -87,6 +87,8 @@ return require('packer').startup(function(use)
 
     use 'https://gitlab.com/schrieveslaach/sonarlint.nvim'
 
+    use 'simrat39/rust-tools.nvim'
+
     use 'mhartington/formatter.nvim'
     use 'williamboman/mason.nvim'
     use 'neovim/nvim-lspconfig'
