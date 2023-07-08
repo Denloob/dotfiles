@@ -37,14 +37,14 @@ local on_attach_general = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     on_attach(client, bufnr)
     vim.keymap.set('n', '<C-f>', function() vim.lsp.buf.format { async = true } end, bufopts)
-    vim.keymap.set('v', '<C-f>', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.keymap.set('x', '<C-f>', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 local on_attach_external_formatting = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     on_attach(client, bufnr)
     vim.keymap.set('n', '<C-f>', "<cmd>Format<CR>", bufopts)
-    vim.keymap.set('v', '<C-f>', "<cmd>'<,'>Format<CR>", bufopts)
+    vim.keymap.set('x', '<C-f>', "<cmd>'<,'>Format<CR>", bufopts)
 end
 
 
