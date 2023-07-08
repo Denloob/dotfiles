@@ -37,6 +37,9 @@ require("formatter").setup {
         javascript = {
             require('formatter.filetypes.javascript').prettierd,
         },
+        typescript = {
+            require('formatter.filetypes.typescript').prettierd,
+        },
         cpp = {
             function()
                 return {
