@@ -90,3 +90,8 @@ lspconfig.elixirls.setup {
     capabilities = capabilities,
     cmd = { "elixir-ls" }
 }
+
+lspconfig.tsserver.setup {
+    on_attach = on_attach_external_formatting,
+    capabilities = capabilities,
+}
