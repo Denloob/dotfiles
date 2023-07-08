@@ -34,6 +34,9 @@ require("formatter").setup {
                 }
             end
         },
+        javascript = {
+            require('formatter.filetypes.javascript').prettierd,
+        },
         python = {
             function()
                 return {
