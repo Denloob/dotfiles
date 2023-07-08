@@ -1,6 +1,7 @@
 local null_ls = require("null-ls")
 local cspell = require("cspell")
 
+cspell.setup()
 
 local cspell_code_action = null_ls.builtins.code_actions.cspell.with({
     config = {
