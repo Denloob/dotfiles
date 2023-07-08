@@ -37,6 +37,17 @@ require("formatter").setup {
         javascript = {
             require('formatter.filetypes.javascript').prettierd,
         },
+        cpp = {
+            function()
+                return {
+                    exe = "clang-format",
+                    args = {
+                        clang_format_style_config,
+                    },
+                    stdin = true,
+                }
+            end
+        },
         python = {
             function()
                 return {
