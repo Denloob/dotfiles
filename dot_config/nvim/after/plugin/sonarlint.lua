@@ -12,6 +12,7 @@ require('sonarlint').setup({
     filetypes = {
         'python',
         'javascript',
+        'typescript',
         'cpp',
         'c',
     }
