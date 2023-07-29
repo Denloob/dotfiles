@@ -15,6 +15,5 @@ if status is-interactive
     abbr -a --position command py python3
     abbr -a --position command pip python3 -m pip
     abbr -a --position command chez chezmoi cd
-    abbr -a --position command cheza chezmoi apply -v
     abbr -a --position command fs tempfish
 end
