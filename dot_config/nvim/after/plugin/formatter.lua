@@ -40,6 +40,18 @@ require("formatter").setup {
         typescript = {
             require('formatter.filetypes.typescript').prettierd,
         },
+        haskell = {
+            function()
+                return {
+                    exe = "fourmolu",
+                    args = {
+                        "--stdin-input-file",
+                        "-",
+                    },
+                    stdin = true,
+                }
+            end
+        },
         cpp = {
             function()
                 return {
