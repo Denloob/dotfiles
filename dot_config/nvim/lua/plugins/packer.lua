@@ -24,6 +24,9 @@ return require('packer').startup(function(use)
     use 'sainnhe/sonokai'
 
     use 'stevearc/dressing.nvim'
+
+    use 'nvim-tree/nvim-web-devicons'
+
     use 'nvim-lualine/lualine.nvim'
 
     use 'folke/which-key.nvim'
@@ -40,13 +43,7 @@ return require('packer').startup(function(use)
     use 'alker0/chezmoi.vim'
     use 'aserowy/tmux.nvim'
 
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional, for file icons
-        },
-        tag = 'nightly'                    -- optional, updated every week. (see issue #1193)
-    }
+    use 'stevearc/oil.nvim'
 
     use 'jiangmiao/auto-pairs'
     use 'kylechui/nvim-surround'
