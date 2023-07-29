@@ -7,7 +7,6 @@ local cspell_code_action = null_ls.builtins.code_actions.cspell.with({
     config = {
         find_json = cspell.get_config_path
     },
-    disabled_filetypes = { "NvimTree" },
 })
 
 null_ls.setup({
