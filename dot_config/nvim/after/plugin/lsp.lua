@@ -97,6 +97,11 @@ lspconfig.tsserver.setup {
     capabilities = capabilities,
 }
 
+lspconfig.arduino_language_server.setup {
+    on_attach = on_attach_general,
+    capabilities = capabilities,
+}
+
 lspconfig.hls.setup {
     on_attach = on_attach_external_formatting,
     capabilities = capabilities,
