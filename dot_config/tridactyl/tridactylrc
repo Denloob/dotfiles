@@ -6,6 +6,15 @@ bindurl web.whatsapp.com --mode=normal <Escape>    composite hint -f m2 ; fillcm
 bindurl web.whatsapp.com --mode=insert <Escape>    composite hint -f m2 ; fillcmdline ; ex.hide_and_clear
 bindurl web.whatsapp.com --mode=input  <Escape>    composite hint -f m2 ; fillcmdline ; ex.hide_and_clear
 
+# Use tridactyl's find instead of firefox's
+bind / fillcmdline find
+bind ? fillcmdline find --reverse
+bind n findnext --search-from-view
+bind N findnext --search-from-view --reverse
+bind gn findselect
+bind gN composite findnext --search-from-view --reverse; findselect
+bind <space>n noh
+
 # Thanks to *this comment for the following snipets.
 # The snippets may be modified.
 #* - https://github.com/tridactyl/tridactyl/issues/377#issuecomment-895565496-permalink
