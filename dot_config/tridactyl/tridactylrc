@@ -31,7 +31,7 @@ command ttexpand_recursively js -d€ browser.runtime.sendMessage("treestyletab@
 command ttcollapse_current_or_parent js browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'get-tree-structure', tab: 'current'}).then(struct => browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'collapse-tree', tab: struct[0].collapsed ? 'parent' : 'current'}))
 
 ## focus
-" > `:ttfocus` is useful to move to parents (parameter `parent` or `root`) and between siblings while jumping over subtrees (`nextSibling`/`prevSibling`)
+# > `:ttfocus` is useful to move to parents (parameter `parent` or `root`) and between siblings while jumping over subtrees (`nextSibling`/`prevSibling`)
 command ttfocus js -d€ browser.runtime.sendMessage("treestyletab@piro.sakura.ne.jp", {type: 'focus', tab: JS_ARGS[1]})€
 
 ## indent/outdent
@@ -63,7 +63,7 @@ bind zP ttfocus root
 bind J ttfocus nextSiblingCyclic
 bind K ttfocus prevSiblingCyclic
 ### Focus next/previous, not skipping over subtrees.
-" Useful for going into tree
+# Useful for going into tree
 bind <space>j tabnext
 bind <space>k tabprev
 
