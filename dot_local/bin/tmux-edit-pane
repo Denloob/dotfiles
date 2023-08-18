@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Source: https://dev.to/acro5piano/edit-tmux-output-with-editor-i1c
+
+file=$(mktemp).fish
+window_name=$(tmux display-message -p "#W")
+
+tmux capture-pane -pS - > "$file"
+tmux new-window -n "e:$window_name" "$EDITOR '+ normal G{}$' $file"
