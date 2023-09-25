@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
     use 'sainnhe/sonokai'
 
     use 'stevearc/dressing.nvim'
+    use 'rcarriga/nvim-notify'
 
     use 'nvim-tree/nvim-web-devicons'
 
