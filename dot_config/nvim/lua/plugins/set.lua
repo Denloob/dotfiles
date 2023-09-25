@@ -5,6 +5,20 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     end
 })
 
+vim.api.nvim_create_autocmd({ "SwapExists" }, {
+    callback = function()
+        vim.v.swapchoice = 'o'
+        vim.notify("Opening a file whose swap file already exists.", vim.log.levels.WARN)
+    end
+})
+
+vim.api.nvim_create_autocmd({ "FileChangedRO" }, {
+    callback = function()
+        vim.bo.readonly = false
+        vim.notify("Modifying a read-only file.", vim.log.levels.WARN)
+    end
+})
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
