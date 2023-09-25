@@ -1,3 +1,3 @@
-function clip --description 'alias clip xclip -sel clip'
-  xclip -sel clip $argv;
+function clip --description 'alias clip fish_clipboard_copy'
+  fish_clipboard_copy $argv;
 end

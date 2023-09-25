@@ -5,5 +5,5 @@ function crp --description "Copies the RealPath of the argument into the clipboa
     set target (realpath "$argv[1]")
   end
 
-  echo -n "$target" | xclip -sel clip
+  echo -n "$target" | fish_clipboard_copy
 end
