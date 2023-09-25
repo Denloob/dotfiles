@@ -17,4 +17,5 @@ if status is-interactive
     abbr -a --position command chez chezmoi cd
     abbr -a --position command fs tempfish
     abbr -a --position command sp nvim_scratchpad
+    abbr -a --position command sm tmux-sessionizer
 end
