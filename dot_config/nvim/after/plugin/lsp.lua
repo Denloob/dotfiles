@@ -52,6 +52,7 @@ end
 lspconfig.clangd.setup {
     on_attach = on_attach_external_formatting,
     capabilities = capabilities,
+    cmd = { "clangd", "--offset-encoding=utf-16" }
 }
 
 lspconfig.jsonls.setup {
