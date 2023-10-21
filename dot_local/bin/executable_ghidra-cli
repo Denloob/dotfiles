@@ -1,0 +1,94 @@
+#!/bin/bash
+
+GHIDRA_PATH="/opt/ghidra/"
+GHIDRA_EXECUTE="$GHIDRA_PATH/ghidraRun"
+GHIDRA_ANALYSE="$GHIDRA_PATH/support/analyzeHeadless"
+TEMP_PROJECT_DIR="/tmp/"
+
+usage() {
+    echo "Usage: $0 [-h | --help] [project]"
+    echo "       $0 (-n | --new-project) [(-d <dir>) (--name <name>)] (-i (<directory>|<file>))..."
+    echo ""
+    echo "  -h, --help                          Show this screen."
+    echo "  -n, --new-project                   Create a new project."
+    echo "  -d, --project-dir <dir>             Directory where to create the new project. [default: /tmp]"
+    echo "  --name <name>                       The name of the new project."
+    echo "  -i, --import (<directory>|<file>)   The file/directory of files to import into the new project. May be specified multiple times."
+    echo ""
+    echo "Examples:"
+    echo "  Create a new temporary project and import ./chal:"
+    echo "      $0 -n -i ./chal"
+    echo "  Create a new project in the \$HOME directory, with the name my_project:"
+    echo "      $0 -n --project-dir \$HOME --name my_project"
+    echo "  Open an existing ghidra project called my_project:"
+    echo "      $0 ./my_project.gpr"
+    exit 1
+}
+
+POSITIONAL_ARGS=()
+NEW_PROJECT=false
+PROJECT_DIR="$TEMP_PROJECT_DIR"
+PROJECT_NAME="$(mktemp -u XXXXXX)"
+IMPORT_FILE=()
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -h|--help)
+            usage
+            ;;
+        -n|--new-project)
+            NEW_PROJECT=true
+            shift # argument
+            ;;
+        -d|--project-dir)
+            PROJECT_DIR="$(realpath "$2")"
+            shift # argument
+            shift # value
+            ;;
+        --name)
+            PROJECT_NAME="$2"
+            shift # argument
+            shift # value
+            ;;
+        -i|--import)
+            IMPORT_FILE+=("$2")
+            shift # argument
+            shift # value
+            ;;
+        --)
+            shift
+            POSITIONAL_ARGS+=("$@")
+            set -- # Clear $@
+            ;;
+        -*)
+            echo "Unknown option $1"
+            usage
+            ;;
+        *)
+            POSITIONAL_ARGS+=("$1")
+            shift
+            ;;
+    esac
+done
+
+if [ "$NEW_PROJECT" = true ]; then
+    if [ ${#IMPORT_FILE[@]} -eq 0 ]; then
+        usage
+    fi
+
+    "$GHIDRA_ANALYSE" "$PROJECT_DIR" "$PROJECT_NAME" -import "${IMPORT_FILE[@]}" || exit $?
+    "$GHIDRA_EXECUTE" "$PROJECT_DIR/$PROJECT_NAME.gpr"
+    exit $?
+fi
+
+
+
+if [ ${#POSITIONAL_ARGS[@]} -eq 0 ]; then
+    "$GHIDRA_EXECUTE"
+    exit $?
+fi
+
+PROJECT="${POSITIONAL_ARGS[0]}"
+PROJECT_PATH="$(realpath "$PROJECT" 2>/dev/null)"
+
+"$GHIDRA_EXECUTE" "$PROJECT_PATH" "${POSITIONAL_ARGS[@]:1}"
