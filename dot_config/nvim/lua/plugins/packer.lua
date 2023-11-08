@@ -93,6 +93,7 @@ return require('packer').startup(function(use)
     use 'mhartington/formatter.nvim'
     use 'williamboman/mason.nvim'
     use 'neovim/nvim-lspconfig'
+    use 'simrat39/inlay-hints.nvim'
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'

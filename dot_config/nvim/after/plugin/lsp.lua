@@ -48,9 +48,13 @@ local on_attach_external_formatting = function(client, bufnr)
     vim.keymap.set('x', '<C-f>', "<cmd>'<,'>Format<CR>", bufopts)
 end
 
+local inlay_hints = require("inlay-hints")
 
 lspconfig.clangd.setup {
-    on_attach = on_attach_external_formatting,
+    on_attach = function(client, bufnr)
+        on_attach_external_formatting(client, bufnr)
+        inlay_hints.on_attach(client, bufnr)
+    end,
     capabilities = capabilities,
     cmd = { "clangd", "--offset-encoding=utf-16" }
 }
