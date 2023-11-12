@@ -86,6 +86,8 @@ return require('packer').startup(function(use)
 
     use 'danymat/neogen'
 
+    use 'ThePrimeagen/refactoring.nvim'
+
     use 'https://gitlab.com/schrieveslaach/sonarlint.nvim'
 
     use 'simrat39/rust-tools.nvim'
