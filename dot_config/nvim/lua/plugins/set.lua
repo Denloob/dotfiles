@@ -1,4 +1,5 @@
 vim.g.c_syntax_for_h = true
+vim.g.asmsyntax = 'nasm'
 
 vim.api.nvim_create_autocmd({ "SwapExists" }, {
     callback = function()
