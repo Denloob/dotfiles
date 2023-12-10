@@ -56,7 +56,7 @@ lspconfig.clangd.setup {
         inlay_hints.on_attach(client, bufnr)
     end,
     capabilities = capabilities,
-    cmd = { "clangd", "--offset-encoding=utf-16" }
+    cmd = { "clangd", "--offset-encoding=utf-16", "--enable-config", "--clang-tidy" }
 }
 
 lspconfig.jsonls.setup {
