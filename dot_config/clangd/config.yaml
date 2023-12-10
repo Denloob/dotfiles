@@ -2,3 +2,4 @@ Diagnostics:
   ClangTidy:
     Add: [clang-diagnostic-*,clang-analyzer-*,cppcoreguidelines-*,clang-analyzer-*,modernize-*,readability-*]
     Remove: [cppcoreguidelines-avoid-do-while,modernize-use-trailing-return-type,readability-identifier-length]
+  UnusedIncludes: Strict
