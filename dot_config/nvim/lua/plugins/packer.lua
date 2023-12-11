@@ -90,6 +90,8 @@ return require('packer').startup(function(use)
 
     use 'https://gitlab.com/schrieveslaach/sonarlint.nvim'
 
+    use 'Badhi/nvim-treesitter-cpp-tools'
+
     use 'simrat39/rust-tools.nvim'
 
     use 'mhartington/formatter.nvim'
