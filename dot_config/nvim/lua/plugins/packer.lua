@@ -49,6 +49,8 @@ return require('packer').startup(function(use)
     use 'jiangmiao/auto-pairs'
     use 'kylechui/nvim-surround'
 
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
+
     use {
         "folke/todo-comments.nvim",
         requires = {
