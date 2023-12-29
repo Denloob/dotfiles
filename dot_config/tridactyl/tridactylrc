@@ -51,12 +51,12 @@ bind zp ttfocus parent
 bind zP ttfocus root
 
 ### Focus next/previous, skipping over subtrees.
-bind J ttfocus nextSiblingCyclic
-bind K ttfocus prevSiblingCyclic
+bind <space>j ttfocus nextSiblingCyclic
+bind <space>k ttfocus prevSiblingCyclic
 ### Focus next/previous, not skipping over subtrees.
 # Useful for going into tree
-bind <space>j tabnext
-bind <space>k tabprev
+bind J tabnext
+bind K tabprev
 
 ### indent/outdent current tree
 bind z< ttoutdent_recursively current
