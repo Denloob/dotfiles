@@ -1,5 +1,5 @@
 Diagnostics:
   ClangTidy:
     Add: [clang-diagnostic-*,clang-analyzer-*,cppcoreguidelines-*,clang-analyzer-*,modernize-*,readability-*]
-    Remove: [cppcoreguidelines-avoid-do-while,modernize-use-trailing-return-type,readability-identifier-length]
+    Remove: [cppcoreguidelines-avoid-do-while,modernize-use-trailing-return-type,readability-identifier-length,readability-implicit-bool-conversion]
   UnusedIncludes: Strict
