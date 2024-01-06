@@ -2,9 +2,31 @@
 
 # Check out ThePrimeagen's [tmux-sessionizer](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer)
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
-else
+new=false
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+    -n)
+        shift
+        new=true
+        ;;
+    --)
+        shift
+        selected="$1" # Use only the first pos arg after --
+        set --        # Clear $@
+        ;;
+    -*)
+        echo "Unknown option: $1"
+        exit 1
+        ;;
+    *)
+        selected="$1"
+        shift
+        ;;
+    esac
+done
+
+if [[ ! -d $selected ]]; then
     mapfile -t options < <(fd . ~/dev ~/src --exact-depth 1 --type d)
     options+=("$(chezmoi source-path)")
     selected=$(printf '%s\n' "${options[@]}" | fzf)
@@ -22,8 +44,11 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     exit 0
 fi
 
-if ! tmux has-session -t="$selected_name" 2> /dev/null; then
+if ! tmux has-session -t="$selected_name" 2>/dev/null; then
     tmux new-session -ds "$selected_name" -c "$selected"
+elif [[ $new == true ]]; then
+    # If new flag, create a new session in the same group instead of attaching.
+    selected_name=$(tmux new-session -dt "$selected_name" -c "$selected" -PF "#S")
 fi
 
 if [[ -z $TMUX ]]; then
