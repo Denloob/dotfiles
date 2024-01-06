@@ -1,4 +1,5 @@
 local lspconfig = require 'lspconfig'
+local trouble = require("trouble")
 
 local opts = { noremap = true, silent = true }
 
@@ -31,7 +32,7 @@ local on_attach = function(_, bufnr)
     end, bufopts)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', 'gr', function() trouble.toggle("lsp_references") end, bufopts)
 end
 
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
