@@ -11,7 +11,6 @@ local cspell_code_action = null_ls.builtins.code_actions.cspell.with({
 
 null_ls.setup({
     sources = {
-        null_ls.builtins.completion.spell,
         cspell_code_action,
         null_ls.builtins.diagnostics.cspell.with {
             args = function(params)
