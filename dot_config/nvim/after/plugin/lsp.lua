@@ -1,6 +1,12 @@
 local lspconfig = require 'lspconfig'
 
 local opts = { noremap = true, silent = true }
+
+local diagnostic_open = function()
+    vim.diagnostic.open_float()
+    vim.diagnostic.open_float() -- Repeat two times to open.
+end
+vim.keymap.set('n', '<leader>do', diagnostic_open, opts)
 vim.keymap.set('n', '<leader>dk', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', '<leader>dj', vim.diagnostic.goto_next, opts)
 
