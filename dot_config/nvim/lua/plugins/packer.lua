@@ -69,8 +69,7 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
 
     use 'lewis6991/gitsigns.nvim'
-    use 'kdheepak/lazygit.nvim'
-    use 'NeogitOrg/neogit'
+    use 'tpope/vim-fugitive'
 
     use 'Exafunction/codeium.vim'
     -- TODO: add everything from nvim-cmp
