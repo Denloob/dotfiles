@@ -1,0 +1,34 @@
+{{ if eq .chezmoi.osid "linux-debian" -}}
+#!/bin/bash
+
+# Install sudo if not installed
+if ! command -v sudo &> /dev/null; then
+    apt update
+    apt install -y sudo
+else
+    sudo apt update
+fi
+
+# Install packages
+xargs -d '\n' -- sudo apt install -y <<EOF
+{{ range .packages.linux.global -}}
+{{ . }}
+{{ end -}}
+{{ range .packages.linux.debian -}}
+{{ . }}
+{{ end -}}
+EOF
+
+
+# Install neovim
+if ! command -v nvim &> /dev/null; then
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    chmod u+x nvim.appimage
+    ./nvim.appimage --appimage-extract
+    rm ./nvim.appimage
+    ./squashfs-root/AppRun --version
+    sudo mv squashfs-root /
+    sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+fi
+
+{{ end -}}

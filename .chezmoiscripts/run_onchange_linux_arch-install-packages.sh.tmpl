@@ -1,0 +1,23 @@
+{{ if eq .chezmoi.osid "linux-arch" -}}
+#!/bin/bash
+
+# Install YAY
+if ! command -v yay &> /dev/null; then
+    pacman -S --needed git base-devel
+    mkdir -p $HOME/src
+    git clone https://aur.archlinux.org/yay.git $HOME/src
+    cd yay
+    makepkg -si
+fi
+
+# Install packages
+yay -S --noconfirm --needed - <<EOF
+{{ range .packages.linux.global -}}
+{{ . }}
+{{ end -}}
+{{ range .packages.linux.arch -}}
+{{ . }}
+{{ end -}}
+EOF
+
+{{ end -}}

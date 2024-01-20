@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+echo "Syncing packer..."
+timeout 15 nvim +PackerSync --headless 2> /dev/null
+# Second run to install anything that was not installed in the first run
+timeout 8  nvim +PackerSync --headless 2> /dev/null
+echo "Done"
+
+{{ end -}}

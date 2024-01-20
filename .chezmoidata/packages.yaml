@@ -1,0 +1,10 @@
+packages:
+  linux:
+    global:
+    - 'git'
+    - 'tmux'
+    - 'curl'
+    debian:
+    - 'build-essential'
+    arch:
+    - 'neovim'
