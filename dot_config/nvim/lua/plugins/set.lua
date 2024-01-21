@@ -19,7 +19,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 
-vim.opt.listchars = { tab = ">-", trail = "." }
+vim.opt.listchars = { tab = " ", trail = "." }
 vim.opt.list = true
 
 vim.opt.tabstop = 4
