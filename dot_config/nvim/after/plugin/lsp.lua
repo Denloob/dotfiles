@@ -121,3 +121,8 @@ lspconfig.zls.setup {
     on_attach = on_attach_general,
     capabilities = capabilities,
 }
+
+lspconfig.gopls.setup {
+    on_attach = on_attach_general,
+    capabilities = capabilities,
+}
