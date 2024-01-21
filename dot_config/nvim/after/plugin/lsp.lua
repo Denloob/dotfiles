@@ -116,3 +116,8 @@ lspconfig.hls.setup {
     on_attach = on_attach_external_formatting,
     capabilities = capabilities,
 }
+
+lspconfig.zls.setup {
+    on_attach = on_attach_general,
+    capabilities = capabilities,
+}
