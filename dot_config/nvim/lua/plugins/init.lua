@@ -5,3 +5,4 @@ package.path = package.path .. vim.fn.expand(";$XDG_CONFIG_HOME/nvim/after/plugi
 require("plugins.set")
 require("plugins.packer")
 require("plugins.remap")
+require("plugins.custom")
