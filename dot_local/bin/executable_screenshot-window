@@ -1,7 +1,4 @@
 #!/bin/bash
 set -e
 
-FILE="$(mktemp --suffix '.png')"
-
-maim -i "$(xdotool getactivewindow)" "$FILE"
-satty --filename "$FILE"
+flameshot gui
