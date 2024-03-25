@@ -4,4 +4,4 @@ set -e
 FILE="$(mktemp --suffix '.png')"
 
 maim "$FILE"
-satty --filename "$FILE"
+pinta "$FILE"
