@@ -27,7 +27,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ ! -d $selected ]]; then
-    mapfile -t options < <(fd . ~/dev ~/src --exact-depth 1 --type d)
+    mapfile -t options < <(fd . ~/dev ~/src ~/CTF --exact-depth 1 --type d)
     options+=("$(chezmoi source-path)")
     selected=$(printf '%s\n' "${options[@]}" | fzf)
 fi
