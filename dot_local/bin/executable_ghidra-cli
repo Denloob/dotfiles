@@ -2,7 +2,7 @@
 
 GHIDRA_PATH="/opt/ghidra/"
 GHIDRA_EXECUTE="$GHIDRA_PATH/ghidraRun"
-GHIDRA_ANALYSE="$GHIDRA_PATH/support/analyzeHeadless"
+GHIDRA_ANALYZE="$GHIDRA_PATH/support/analyzeHeadless"
 TEMP_PROJECT_DIR="/tmp/"
 
 usage() {
@@ -73,10 +73,10 @@ done
 
 if [ "$NEW_PROJECT" = true ]; then
     if [ ${#IMPORT_FILE[@]} -eq 0 ]; then
-        usage
+        IMPORT_FILE=("") # Import nothing.
     fi
 
-    "$GHIDRA_ANALYSE" "$PROJECT_DIR" "$PROJECT_NAME" -import "${IMPORT_FILE[@]}" || exit $?
+    "$GHIDRA_ANALYZE" "$PROJECT_DIR" "$PROJECT_NAME" -import "${IMPORT_FILE[@]}" || exit $?
     "$GHIDRA_EXECUTE" "$PROJECT_DIR/$PROJECT_NAME.gpr"
     exit $?
 fi
