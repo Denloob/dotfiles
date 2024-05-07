@@ -48,6 +48,9 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- set `:!commandHere` to be executed in powershell instead of cmd if on windows
 if vim.fn.has("win32") == 1 then
     vim.cmd([[
