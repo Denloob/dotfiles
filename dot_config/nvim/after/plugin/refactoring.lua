@@ -25,7 +25,7 @@ vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file", { desc = "
 
 -- Debug utilities:
 
-vim.keymap.set("n", "<leader>rp", function() require('refactoring').debug.printf { below = true } end, { desc = "Refactor: Print statement bellow" })
+vim.keymap.set("n", "<leader>rp", function() require('refactoring').debug.printf { below = true } end, { desc = "Refactor: Print statement below" })
 vim.keymap.set("n", "<leader>rP", function() require('refactoring').debug.printf { below = false } end, { desc = "Refactor: Print statement above" })
 
 vim.keymap.set({ "x", "n" }, "<leader>rv", function() require('refactoring').debug.print_var() end, { desc = "Refactor: Print variable" })
