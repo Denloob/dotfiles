@@ -2,7 +2,10 @@ require('refactoring').setup {
     printf_statements = {
         cpp = {
             'std::cerr << "%s" << std::endl; /* DEBUG: */',
-        }
+        },
+        go = {
+            'log.Println("%s") /* DEBUG: */',
+        },
     },
     print_var_statements = {
         cpp = {
