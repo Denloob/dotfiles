@@ -28,6 +28,8 @@ return require('packer').startup(function(use)
     use 'stevearc/dressing.nvim'
     use 'rcarriga/nvim-notify'
 
+    use 'folke/zen-mode.nvim'
+
     use 'nvim-tree/nvim-web-devicons'
 
     use 'nvim-lualine/lualine.nvim'
