@@ -23,6 +23,8 @@ return require('packer').startup(function(use)
     use 'folke/tokyonight.nvim'
     use 'sainnhe/sonokai'
 
+    use "MunifTanjim/nui.nvim"
+
     use 'stevearc/dressing.nvim'
     use 'rcarriga/nvim-notify'
 
