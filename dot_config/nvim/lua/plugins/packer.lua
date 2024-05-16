@@ -30,6 +30,9 @@ return require('packer').startup(function(use)
 
     use 'nvim-lualine/lualine.nvim'
 
+    use 'm4xshen/hardtime.nvim'
+    use 'ThePrimeagen/vim-be-good'
+
     use 'Eandrju/cellular-automaton.nvim'
     use 'alec-gibson/nvim-tetris'
 
