@@ -74,6 +74,8 @@ return require('packer').startup(function(use)
 
     use 'mbbill/undotree'
 
+    use { 'toppair/peek.nvim', run = 'deno task --quiet build:fast' }
+
     use 'lewis6991/gitsigns.nvim'
     use 'tpope/vim-fugitive'
 
