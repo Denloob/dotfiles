@@ -37,6 +37,8 @@ return require('packer').startup(function(use)
         requires = { "tpope/vim-repeat" }
     }
 
+    use 'nishigori/increment-activator'
+
     use 'nvimtools/hydra.nvim'
 
     use {
