@@ -1,0 +1,23 @@
+{
+    "Debug Log": {
+        "prefix": "dlg",
+        "body": [
+            "std::cerr << $0 << '\n'; // DEBUG:"
+        ],
+        "description": "Debug logging snippet"
+    },
+    "Include": {
+        "prefix": "#inc",
+        "body": [
+            "#include <$0>"
+        ],
+        "description": "Include header"
+    },
+    "Include local": {
+        "prefix": "#incl",
+        "body": [
+            "#include \"$0\""
+        ],
+        "description": "Include local header"
+    }
+}

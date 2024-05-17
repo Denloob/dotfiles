@@ -11,6 +11,10 @@
             {
                 "language": "go",
                 "path": "./go.json"
+            },
+            {
+                "language": "cpp",
+                "path": "./cpp.json"
             }
         ]
     }
