@@ -126,3 +126,13 @@ lspconfig.gopls.setup {
     on_attach = on_attach_general,
     capabilities = capabilities,
 }
+
+lspconfig.htmx.setup {
+    on_attach = on_attach_external_formatting,
+    capabilities = capabilities,
+}
+
+lspconfig.templ.setup {
+    on_attach = on_attach_general,
+    capabilities = capabilities,
+}

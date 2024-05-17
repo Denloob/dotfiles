@@ -40,6 +40,12 @@ require("formatter").setup {
         typescript = {
             require('formatter.filetypes.typescript').prettierd,
         },
+        html = {
+            require('formatter.filetypes.html').prettier,
+        },
+        css = {
+            require('formatter.filetypes.css').prettier,
+        },
         haskell = {
             function()
                 return {
