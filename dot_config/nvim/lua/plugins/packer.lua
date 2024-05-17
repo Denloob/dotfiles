@@ -31,6 +31,12 @@ return require('packer').startup(function(use)
     use 'nvim-lualine/lualine.nvim'
 
     use 'folke/which-key.nvim'
+
+    use {
+        'ggandor/leap.nvim',
+        requires = { "tpope/vim-repeat" }
+    }
+
     use {
         'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } }
