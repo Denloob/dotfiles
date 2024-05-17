@@ -37,6 +37,8 @@ return require('packer').startup(function(use)
         requires = { "tpope/vim-repeat" }
     }
 
+    use 'nvimtools/hydra.nvim'
+
     use {
         'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } }
