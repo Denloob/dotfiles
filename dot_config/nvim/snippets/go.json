@@ -1,0 +1,12 @@
+{
+    "Standard Template": {
+        "prefix": "st",
+        "body": [
+            "package main\n",
+            "func main() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Standard template for go"
+    }
+}
