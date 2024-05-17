@@ -1,0 +1,61 @@
+{
+    "Standard Template": {
+        "prefix": "st",
+        "body": [
+            "org 100h\n",
+            "; @brief Clean `param_amount` elements from the stack.",
+            ";           Useful for cleaning params after a call.",
+            "CLEAN_STACK MACRO param_amount",
+            "    add     sp, param_amount * 2",
+            "ENDM\n",
+            "jmp start\n",
+            "start:",
+            "\t$0\n",
+            "\txor \tah, ah",
+            "\tint \t16h",
+            "\tret\n",
+            "include magshimim.inc"
+        ],
+        "description": "Standard template for 8086 assembly"
+    },
+    "For Loop": {
+        "prefix": "for",
+        "body": [
+            "mov \t$3, 0                ; for ($2 = 0; $2 $4 $6; $2++) {",
+            "jmp \t$1_loop_condition",
+            "$1_loop:",
+            "\t$0\n",
+            "\tinc \t$3",
+            "$1_loop_condition:",
+            "\tcmp \t$3, $7",
+            "\tj$5 \t$1_loop         ; } // end for ($2 = 0; $2 $4 $6; $2++)"
+        ],
+        "description": "A simple for loop"
+    },
+    "While Loop": {
+        "prefix": "while",
+        "body": [
+            "jmp \t$1_loop_condition    ; while ($2 $4 $6) {",
+            "$1_loop:",
+            "\t$0\n",
+            "$1_loop_condition:",
+            "\tcmp \t$3, $7",
+            "\tj$5 \t$1_loop         ; } // end while ($2 $4 $6)"
+        ],
+        "description": "A simple for loop"
+    },
+    "Procedure": {
+        "prefix": "proc",
+        "body": [
+            "PROC $1\t\t; fn $1($3) -> $2 {",
+            "\tpush\tbp",
+            "\tmov \tbp, sp",
+            "\tsub \tsp, $4\n",
+            "\t$0\n",
+            "\tmov \tsp, bp",
+            "\tpop \tbp",
+            "\tret",
+            "ENDP $1\t\t; }"
+        ]
+    }
+}

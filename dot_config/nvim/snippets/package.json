@@ -1,7 +1,6 @@
 {
     "name": "nvim-snippets",
     "author": "Den_loob",
-
     "contributes": {
         "snippets": [
             {
@@ -15,6 +14,10 @@
             {
                 "language": "cpp",
                 "path": "./cpp.json"
+            },
+            {
+                "language": "nasm",
+                "path": "./asm8086.json"
             }
         ]
     }
