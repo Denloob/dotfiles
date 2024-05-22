@@ -17,14 +17,21 @@ M.enabled = true
 
 --- Returns the config path
 ---@return string
-M.get_config_path = function()
-    if not M.enabled then
-        return "/dev/null/non_existent.json" -- A fake path that shall never exist
-    end
+local format_config_path = function()
     local home_path = vim.fn.expand("$HOME")
     local config_path = string.format("%s/.cspell/%s.json", home_path, vim.bo.filetype)
 
     return config_path
+end
+
+--- Returns the config path if M.enabled == true, otherwise returns a non-existent path
+---@return string
+M.get_config_path = function()
+    if not M.enabled then
+        return "/dev/null/non_existent.json" -- A fake path that shall never exist
+    end
+
+    return format_config_path();
 end
 
 --- Creates the config file if it doesn't exist.
@@ -39,7 +46,7 @@ end
 --- Checks if the config exists
 ---@return boolean
 M.config_exists = function()
-    local config_path = M.get_config_path()
+    local config_path = format_config_path()
 
     return vim.fn.filereadable(config_path) == 1
 end
