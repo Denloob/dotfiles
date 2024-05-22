@@ -105,6 +105,15 @@ return require('packer').startup(function(use)
     use 'uga-rosa/cmp-dictionary'
     use 'rafamadriz/friendly-snippets'
 
+    use 'williamboman/mason.nvim'
+
+    -- TODO: ultest? neotest?
+    use 'mfussenegger/nvim-dap'
+    use 'rcarriga/nvim-dap-ui'
+    use 'nvim-neotest/nvim-nio'
+    use 'theHamsta/nvim-dap-virtual-text'
+    use 'jay-babu/mason-nvim-dap.nvim'
+
     use { 'L3MON4D3/LuaSnip', tag = 'v1.*' }
     use 'saadparwaiz1/cmp_luasnip'
     use 'jose-elias-alvarez/null-ls.nvim'
@@ -120,7 +129,6 @@ return require('packer').startup(function(use)
     use 'simrat39/rust-tools.nvim'
 
     use 'mhartington/formatter.nvim'
-    use 'williamboman/mason.nvim'
     use 'neovim/nvim-lspconfig'
     use 'simrat39/inlay-hints.nvim'
     use {
