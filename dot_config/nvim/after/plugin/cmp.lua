@@ -33,6 +33,7 @@ cmp.setup({
                 fallback()
             end
         end,
+        ['<C-y>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
