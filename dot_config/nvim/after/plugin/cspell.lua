@@ -12,9 +12,15 @@ local _get_table_keys = function(t)
     return keys
 end
 
+--- If false, CSpell won't lint spelling errors
+M.enabled = true
+
 --- Returns the config path
 ---@return string
 M.get_config_path = function()
+    if not M.enabled then
+        return "/dev/null/non_existent.json" -- A fake path that shall never exist
+    end
     local home_path = vim.fn.expand("$HOME")
     local config_path = string.format("%s/.cspell/%s.json", home_path, vim.bo.filetype)
 
@@ -46,7 +52,13 @@ local subcommands = {
             print("No")
         end
     end,
-    ["Create"] = M.create_config
+    ["Create"] = M.create_config,
+    ["Start"] = function()
+        M.enabled = true
+    end,
+    ["Stop"] = function()
+        M.enabled = false
+    end,
 }
 
 --- Set's up the CSpell command
