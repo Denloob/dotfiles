@@ -71,6 +71,7 @@ return require('packer').startup(function(use)
 
     use 'ThePrimeagen/harpoon'
 
+    use 'chrisgrieser/nvim-various-textobjs'
     use 'nvim-treesitter/nvim-treesitter-textobjects'
 
     use {
