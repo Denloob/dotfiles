@@ -97,6 +97,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
 
     use 'Exafunction/codeium.vim'
+
     -- TODO: add everything from nvim-cmp
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
@@ -144,5 +145,4 @@ return require('packer').startup(function(use)
     if packer_bootstrap then
         require('packer').sync()
     end
-
 end)
