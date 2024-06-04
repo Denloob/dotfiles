@@ -1,0 +1,7 @@
+#!/bin/bash -eu
+
+mkdir -p "$HOME/src"
+
+git clone https://github.com/Denloob/gdb-pwn-manager.git "$HOME/src/gdb-pwn-manager"
+GDB_PWN_MANAGER_OVERWRITE=y "$HOME/src/gdb-pwn-manager/install.sh"
+env rm "$HOME/.gdbinit"
