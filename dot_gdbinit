@@ -1,0 +1,56 @@
+set debuginfod enabled on
+
+set history size unlimited
+set history remove-duplicates 256
+set history filename ~/.gdb_history
+
+python
+import os
+
+GDB_HOME=os.environ.get("GDB_HOME", "~/.gdb/")
+
+#gdb.execute(f"source {GDB_HOME}/retsync.py")
+
+def init_peda():
+    gdb.execute(f"source {GDB_HOME}/peda/peda.py")
+
+def init_peda_arm():
+    gdb.execute(f"source {GDB_HOME}/peda-arm/peda-arm.py")
+
+def init_peda_intel():
+    gdb.execute(f"source {GDB_HOME}/peda-arm/peda-intel.py")
+
+def init_pwndbg():
+    gdb.execute(f"source {GDB_HOME}/pwndbg/gdbinit.py")
+
+    gdb.execute(f"source {GDB_HOME}/splitmind/gdbinit.py")
+
+    import splitmind
+    (splitmind.Mind()
+      .tell_splitter(show_titles=True)
+      .tell_splitter(set_title="Main")
+      .right(display="output", cmd='tty; tail -f /dev/null', size="25%", clearing=False)
+      .tell_splitter(set_title='Input / Output')
+      .above(of="main", display="disasm", size="30%", banner="top")
+      .show("code", on="disasm", banner="none")
+      .show("ghidra", on="disasm", banner="none")
+      .above(of="main", display="stack", size="50%")
+      .left(display="regs", size="50%")
+      .show("legend", on="regs")
+      .below(of="output", cmd="$SHELL", size="40%")
+      .tell_splitter(set_title="python")
+      .above(display="backtrace", size="50%")
+    ).build(nobanner=True)
+
+
+    gdb.execute("set output-radix 16")
+    gdb.execute("set r2decompiler rizin")
+    gdb.execute('set context-sections regs args code disasm stack backtrace ghidra')
+
+def init_gef():
+    gdb.execute(f"source {GDB_HOME}/gef/gef.py")
+
+if "GDB_PWN_MANAGER" not in os.environ:
+    # Initialize a default plugin if none were executed
+    init_pwndbg()
+end
