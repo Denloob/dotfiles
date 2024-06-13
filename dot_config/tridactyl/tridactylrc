@@ -1,6 +1,9 @@
 # Unbind <F1> that's used by Tree-Style-Tabs
 unbind <F1>
 
+# Unbined Ctrl+A, it's used for select all
+unbind <C-a>
+
 # See https://github.com/tridactyl/tridactyl/issues/3070#issuecomment-1080227866
 bindurl web.whatsapp.com --mode=normal <Escape>    composite hint -f m2 ; fillcmdline ; ex.hide_and_clear
 bindurl web.whatsapp.com --mode=insert <Escape>    composite hint -f m2 ; fillcmdline ; ex.hide_and_clear
