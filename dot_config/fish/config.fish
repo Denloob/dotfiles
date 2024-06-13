@@ -20,4 +20,16 @@ if status is-interactive
     abbr -a --position command sm tmux-sessionizer
     abbr -a --position command --set-cursor g nvim +"'Git %'" +only
     abbr -a --position command info info --vi-keys
+
+    # Keybindings
+    function bind_bang
+        switch (commandline -t)[-1]
+            case "!"
+                commandline -t -- $history[1]
+                commandline -f repaint
+            case "*"
+                commandline -i !
+        end
+    end
+    bind ! bind_bang
 end
