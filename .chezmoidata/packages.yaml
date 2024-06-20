@@ -2,6 +2,7 @@ packages:
   linux:
     global:
     - 'git'
+    - 'fish'
     - 'tmux'
     - 'curl'
     debian:
