@@ -58,6 +58,7 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use 'folke/trouble.nvim'
+    use 'gabrielpoca/replacer.nvim'
 
     use 'NyCodeGHG/presence.nvim'
 
