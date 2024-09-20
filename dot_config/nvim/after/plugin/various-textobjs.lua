@@ -4,6 +4,7 @@ textobjs.setup {
     useDefaultKeymaps = true,
     disabledKeymaps = {
         "aS", "iS",
+        "r",
     },
 }
 
