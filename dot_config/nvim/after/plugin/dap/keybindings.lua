@@ -38,23 +38,11 @@ vim.keymap.set("n", "<leader>dro", dap.repl.open, { desc = "Repl: Open" })
 
 -- vim.keymap.set( "n", "<leader>dc", require('dap.ui.variables').scopes )
 
-which_key.register({
-    d = {
-        name = "Debug",
-        s = {
-            name = "Step",
-        },
-        h = {
-            name = "Hover",
-        },
-        u = {
-            name = "UI",
-        },
-        r = {
-            name = "Repl",
-        },
-        b = {
-            name = "Breakpoints",
-        },
-    },
-}, { prefix = "<leader>" })
+which_key.add({
+    { "<leader>d", group = "Debug" },
+    { "<leader>db", group = "Breakpoints" },
+    { "<leader>dh", group = "Hover" },
+    { "<leader>dr", group = "Repl" },
+    { "<leader>ds", group = "Step" },
+    { "<leader>du", group = "UI" },
+})
