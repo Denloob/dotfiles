@@ -32,7 +32,7 @@ vim.opt.smartindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.opt.wrap = false
+vim.opt.linebreak = true
 
 vim.opt.termguicolors = true
 
