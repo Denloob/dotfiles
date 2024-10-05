@@ -62,6 +62,7 @@ return require('packer').startup(function(use)
 
     use 'NyCodeGHG/presence.nvim'
 
+    use 'tpope/vim-abolish'
     use 'vim-scripts/cmdalias.vim'
 
     use 'alker0/chezmoi.vim'
