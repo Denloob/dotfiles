@@ -85,6 +85,8 @@ return require('packer').startup(function(use)
         }
     }
 
+    use 'farmergreg/vim-lastplace'
+
     use 'dstein64/vim-startuptime'
     use 'lewis6991/impatient.nvim'
     use 'pteroctopus/faster.nvim'
