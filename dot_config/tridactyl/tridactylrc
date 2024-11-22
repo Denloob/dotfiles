@@ -64,3 +64,10 @@ bind K tabprev
 ### indent/outdent current tree
 bind z< ttoutdent_recursively current
 bind z> ttindent_recursively current
+
+### Tab search
+unbind b
+unbind d
+unbind r
+unbind <C-e>
+bind --mode=browser <C-e> fillcmdline tab
