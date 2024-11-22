@@ -87,6 +87,8 @@ return require('packer').startup(function(use)
 
     use 'dstein64/vim-startuptime'
     use 'lewis6991/impatient.nvim'
+    use 'pteroctopus/faster.nvim'
+
     use 'lambdalisue/suda.vim'
     use 'rootkiter/vim-hexedit'
 
