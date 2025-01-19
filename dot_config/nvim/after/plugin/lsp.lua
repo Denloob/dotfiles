@@ -10,6 +10,12 @@ end
 vim.keymap.set('n', '<leader>do', diagnostic_open, opts)
 vim.keymap.set('n', '<leader>dk', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', '<leader>dj', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<leader>dK', function()
+    vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR, })
+end, opts)
+vim.keymap.set('n', '<leader>dJ', function()
+    vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR, })
+end, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
