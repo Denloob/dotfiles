@@ -5,7 +5,7 @@ local clang_format_style_config =
     '-style="{' ..
         'ReflowComments: false,' ..
         'IndentWidth: 4,' ..
-        'ColumnLimit: 80,' ..
+        'ColumnLimit: 85,' ..
         'IndentCaseLabels: true,' ..
         'BreakBeforeBraces: Allman,' ..
         'AllowShortFunctionsOnASingleLine: None,' ..
