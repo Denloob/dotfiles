@@ -13,6 +13,9 @@ bindurl web.whatsapp.com --mode=input  <Escape>    composite hint -f m2 ; fillcm
 # The snippets may be modified.
 #* - https://github.com/tridactyl/tridactyl/issues/377#issuecomment-895565496-permalink
 
+# Colorscheme
+colorscheme shydactyl-custom
+
 # Tree-Style-Tabs commands
 
 ## expand/collapse commands (require a parameter except ttcollapse_current_or_parent)
@@ -71,3 +74,5 @@ unbind d
 unbind r
 unbind <C-e>
 bind --mode=browser <C-e> fillcmdline tab
+
+set tabsort mru # Sort by most recently used
