@@ -4,6 +4,7 @@ if status is-interactive
 
     # Initialize python environment
     pyenv init - | source
+    direnv hook fish | source
 
     # If we are in tty1 and dwm not running, startx.
     if test (tty) = "/dev/tty1" && not pgrep -x dwm
