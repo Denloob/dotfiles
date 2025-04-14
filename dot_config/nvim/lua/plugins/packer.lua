@@ -124,9 +124,11 @@ return require('packer').startup(function(use)
     use 'theHamsta/nvim-dap-virtual-text'
     use 'jay-babu/mason-nvim-dap.nvim'
 
+    use 'davidmh/cspell.nvim'
+
     use { 'L3MON4D3/LuaSnip', tag = 'v1.*' }
     use 'saadparwaiz1/cmp_luasnip'
-    use 'jose-elias-alvarez/null-ls.nvim'
+    use 'nvimtools/none-ls.nvim'
 
     use 'danymat/neogen'
 

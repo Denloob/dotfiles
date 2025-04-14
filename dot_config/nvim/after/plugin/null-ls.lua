@@ -1,30 +1,25 @@
 local null_ls = require("null-ls")
+local cspellcfg = require("cspellcfg")
 local cspell = require("cspell")
 
-cspell.setup()
+cspellcfg.setup()
 
-local cspell_code_action = null_ls.builtins.code_actions.cspell.with({
-    config = {
-        find_json = cspell.get_config_path
-    },
-})
+local config = {
+    find_json = cspellcfg.get_config_path
+}
 
 null_ls.setup({
     sources = {
-        cspell_code_action,
-        null_ls.builtins.diagnostics.cspell.with {
-            args = function(params)
-                return {
-                    "lint",
-                    "--language-id",
-                    params.ft,
-                    "--show-suggestions",
-                    "--config",
-                    cspell.get_config_path(),
-                    "stdin",
-                }
-            end
-        },
+        cspell.code_actions.with({
+            config = config,
+        }),
+        cspell.diagnostics.with({
+            config = config,
+            diagnostics_postprocess = function(diagnostic)
+              diagnostic.severity = vim.diagnostic.severity.HINT
+            end,
+        }),
+
         null_ls.builtins.diagnostics.credo,
     },
 })
